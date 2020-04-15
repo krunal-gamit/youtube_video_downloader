@@ -65,7 +65,7 @@ def DownloadFile():
     else:
         youtubeEntryError.config(text="Please paste YouTube link",
                                  fg="red")
-    # ============progress bar==================
+    #progress bar
 
 
 def progress(stream=None, chunk=None, file_handle=None, remaining=None):
@@ -80,27 +80,27 @@ def complete():
     loadingLabel.config(text=("Download Complete"))
 
 
-# ================tkinter window
+#tkinter window
 root = Tk()
 root.title("Youtube Video downloader")
-# ===============contents strech ac to windows strech====
+#contents strech ac to windows strech
 root.grid_columnconfigure(0, weight=1)  # strech things Horiontally
-# =============youtube link label=================
+#youtube link label
 youtubeLinkLabel = Label(root,
                          text="Paste the YouTube link: ",
                          fg="blue", font=("Raleway", 20,"bold"))
 youtubeLinkLabel.grid()
-# ==========get youtube link in entry box
+#get youtube link in entry box
 youtubeEntryVar = StringVar()
 youtubeEntry = Entry(root, width=50,
                      textvariable=youtubeEntryVar)
 youtubeEntry.grid(pady=(0, 20))
-# =========when link is wrong print this label
+#when link is wrong print this label
 youtubeEntryError = Label(root, fg="red",
                           text="", font=("Raleway", 20))
 youtubeEntryError.grid(pady=(0, 10))
 
-# Asking where to save file label
+#Asking where to save file label
 SaveLabel = Label(root,
                   text="Destination: ", fg="blue",
                   font=("Arial", 20, "bold"))
@@ -115,7 +115,7 @@ SaveEntry.grid()
 fileLocationLabelError = Label(root,
                                text="", font=("Agency FB", 20))
 fileLocationLabelError.grid(pady=(0, 0))
-# ======= what to download choice==========
+#what to download choice
 youtubeChooseLabel = Label(root,
                            text="Please choose what to download: ",
                            font=("Agency FB", 20))
@@ -130,12 +130,12 @@ downloadChoices = ["MP4_720p",
 youtubeChoices = ttk.Combobox(root, values=downloadChoices)
 youtubeChoices.grid()
 
-# ==================Download button===================
+#Download button
 downloadButton = Button(root,
                         text="Download", width=15, bg="green",
                         command=DownloadFile)
 downloadButton.grid(pady=(20, 20))
-# Progressbar ======>
+# Progressbar
 progressbar = ttk.Progressbar(root, orient="horizontal",
                               length=500, mode='indeterminate')
 progressbar.grid(pady=(2, 0))
